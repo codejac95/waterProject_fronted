@@ -1,0 +1,7 @@
+.temperature, .humidity, .moisture {
+    display: flex;          
+    align-items: center;       
+    justify-content: center;   
+    margin-bottom: 10px;      
+    text-align: center;        
+  }
