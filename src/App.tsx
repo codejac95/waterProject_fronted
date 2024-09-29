@@ -9,6 +9,9 @@ const TemperatureHumidityMoistureFetcher = () => {
   const [temperature, setTemperature] = useState<number | null>(null);
   const [humidity, setHumidity] = useState<number | null>(null);
   const [moisture, setMoisture] = useState<number | null>(null);
+  const [avgTemperature, setAvgTemperature] = useState<number | null>(null);
+  const [avgHumidity, setAvgHumidity] = useState<number | null>(null);
+  const [avgMoisture, setAvgMoisture] = useState<number | null>(null);
 
   const fetchTemperature = async () => {
       const response = await fetch('http://localhost:8080/getTemperature');
@@ -22,7 +25,7 @@ const TemperatureHumidityMoistureFetcher = () => {
   const fetchHumidity = async () => {
       const response = await fetch('http://localhost:8080/getHumidity');
       if (!response.ok) {
-        throw new Error('Failed to fetch humidity');
+        throw new Error("Failed to fetch humidity");
       }
       const humidity: number = await response.json();
       setHumidity(humidity);
@@ -31,17 +34,30 @@ const TemperatureHumidityMoistureFetcher = () => {
   const fetchMoisture = async () => {
     const response = await fetch('http://localhost:8080/getMoisture');
     if (!response.ok) {
-      throw new Error('Failed to fetch moisture');
+      throw new Error("Failed to fetch moisture");
     }
     const moisture: number = await response.json();
     setMoisture(moisture);
 };
+
+const fetchAverageData  =async () => {
+  const response = await fetch('http://localhost:8080/getAverageData')
+  if(!response.ok) {
+    throw new Error("Failed to fetch averageData")
+  }
+  const avgData: {temperature: number, humidity: number, moisture: number}
+  = await response.json();
+  setAvgTemperature(avgData.temperature);
+  setAvgHumidity(avgData.humidity);
+  setAvgMoisture(avgData.moisture);
+}
 
   useEffect(() => {
     const fetchData = async () => {
       await fetchTemperature();
       await fetchHumidity();
       await fetchMoisture();
+      await fetchAverageData();
     };
     fetchData();
     const intervalid = setInterval(fetchData,30000);
@@ -52,7 +68,11 @@ const TemperatureHumidityMoistureFetcher = () => {
       <div className="container">
         <div className="data-section">
         <h2>Greenhouse data:</h2>
-        <p>(if anything blinks, it means trouble)</p>
+        <p>(if anything blinks, it means trouble.) <br />
+          optimal tempature = 15-30°C <br />
+          optimal humidity = 60-80% <br />  
+          optimal soil moisture = 20-50%
+        </p>
           <div id="temperature">
             <p>
               Temperature: {temperature} °C
@@ -85,6 +105,13 @@ const TemperatureHumidityMoistureFetcher = () => {
                 style={{width: '60px', height: '60px' }}
               />
             </p>
+          </div>
+          <div id = "averageData">
+            <h2>7 days average:</h2>            
+              <p> Tempature: {avgTemperature} °C  <br /><br />
+                  Humidity: {avgHumidity} % <br /><br />
+                  Soil moistue: {avgMoisture} %</p>  
+           
           </div>
         </div>
         <img id="greenhouse" src={greenhouse} alt="greenhouse" />
