@@ -14,7 +14,7 @@ const TemperatureHumidityMoistureFetcher = () => {
   const [avgMoisture, setAvgMoisture] = useState<number | null>(null);
 
   const fetchTemperature = async () => {
-      const response = await fetch('https://seashell-app-7hlnd.ondigitalocean.app/getTemperature');
+      const response = await fetch("https://seashell-app-7hlnd.ondigitalocean.app/getTemperature");
       if (!response.ok) {
         throw new Error('Failed to fetch temperature');
       }
