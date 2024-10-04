@@ -3,7 +3,7 @@ import './app.css'
 import moistureGif from './img/moisture.gif';
 import tempatureGif from './img/tempature.gif';
 import humidityGif from './img/humidity.gif';
-import greenhouse from './img/greenhouse.png';
+import tomato from './img/tomato.png';
 
 const TemperatureHumidityMoistureFetcher = () => {
   const [temperature, setTemperature] = useState<number | null>(null);
@@ -71,19 +71,19 @@ const fetchAverageData  =async () => {
     return (
       <div className="container">
         <div className="data-section">
-        <h2>Greenhouse data:</h2>
-        <p>(if anything blinks, it means trouble.) <br />
-          optimal tempature = 15-30°C <br />
-          optimal humidity = 60-80% <br />  
-          optimal soil moisture = 20-50%
-        </p>
+        <h2>Tomato greenhouse data:</h2>
+        <h4>optimal tempature = 16-27°C <br />
+          optimal humidity = 65-85% <br />  
+          optimal soil moisture = 40-80% <br />
+          (if anything blinks, it means trouble.)
+        </h4>
           <div id="temperature">
             <p>
               Temperature: {displayValue(temperature)} °C
               <img
                 src={tempatureGif}
                 alt="temperature"
-                className={temperature && (temperature < 15 || temperature > 30) ? 'blink' : ''}
+                className={temperature && (temperature < 16 || temperature > 27) ? 'blink' : ''}
                 style={{width: '50px', height: '50px' }}
               />
             </p>
@@ -94,7 +94,7 @@ const fetchAverageData  =async () => {
               <img
                 src={humidityGif}
                 alt="humidity"
-                className={humidity && (humidity < 60 || humidity > 80) ? 'blink' : ''}
+                className={humidity && (humidity < 65 || humidity > 85) ? 'blink' : ''}
                 style={{width: '60px', height: '60px' }}
               />
             </p>
@@ -105,7 +105,7 @@ const fetchAverageData  =async () => {
               <img
                 src={moistureGif}
                 alt="moisture"
-                className={moisture && (moisture < 20 || moisture > 50) ? 'blink' : ''}
+                className={moisture && (moisture < 40) ? 'blink' : ''}
                 style={{width: '60px', height: '60px' }}
               />
             </p>
@@ -117,7 +117,7 @@ const fetchAverageData  =async () => {
                   Soil moistue: {displayValue(avgMoisture)} %</p>      
           </div>
         </div>
-        <img id="greenhouse" src={greenhouse} alt="greenhouse" />
+        <img id="tomato" src={tomato} alt="tomato" />
       </div>
     );
   };
