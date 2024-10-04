@@ -1,1 +1,0 @@
-body{font-family:sans-serif}#tomato{margin-right:30%;height:40%;width:40%}.container{display:flex;justify-content:space-between;align-items:center;margin-left:10px}.data-section{flex:1}.blink{animation:blink-animation 1.5s infinite}@keyframes blink-animation{0%{opacity:1}50%{opacity:0}to{opacity:1}}
