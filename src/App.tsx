@@ -23,7 +23,7 @@ const TemperatureHumidityMoistureFetcher = () => {
   };
 
   const fetchHumidity = async () => {
-      const response = await fetch('http://localhost:8080/getHumidity');
+      const response = await fetch("http://localhost:8080/getHumidity");
       if (!response.ok) {
         throw new Error("Failed to fetch humidity");
       }
@@ -32,7 +32,7 @@ const TemperatureHumidityMoistureFetcher = () => {
   };
 
   const fetchMoisture = async () => {
-    const response = await fetch('http://localhost:8080/getMoisture');
+    const response = await fetch("http://localhost:8080/getMoisture");
     if (!response.ok) {
       throw new Error("Failed to fetch moisture");
     }
@@ -41,7 +41,7 @@ const TemperatureHumidityMoistureFetcher = () => {
 };
 
 const fetchAverageData  =async () => {
-  const response = await fetch('http://localhost:8080/getAverageData')
+  const response = await fetch("http://localhost:8080/getAverageData")
   if(!response.ok) {
     throw new Error("Failed to fetch averageData")
   }
