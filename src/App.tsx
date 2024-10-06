@@ -71,14 +71,16 @@ const fetchAverageData  =async () => {
     return (
       <div className="container">
         <div className="data-section">
-        <h2>Tomato greenhouse data:</h2>
-        <h4>optimal tempature = 16-27°C <br />
-          optimal humidity = 65-85% <br />  
-          optimal soil moisture = 40-80% <br />
-          (if anything blinks, it means trouble.)
-        </h4>
+          <div className='data-box'>
+            <h2>Tomato greenhouse data:</h2>
+            <h4>optimal tempature = 16-27°C <br /><br />
+              optimal humidity = 65-85% <br /><br />  
+              optimal soil moisture = 40-80% <br /> <br />
+         
+            </h4>
+         </div>
           <div id="temperature">
-            <p>
+            <p style = {{color:'orange'}}>
               Temperature: {displayValue(temperature)} °C
               <img
                 src={tempatureGif}
@@ -89,18 +91,18 @@ const fetchAverageData  =async () => {
             </p>
           </div>
           <div id="humidity">
-            <p>
+            <p style = {{color:'blue'}}>
               Humidity: {displayValue(humidity)} %
               <img
                 src={humidityGif}
                 alt="humidity"
                 className={humidity && (humidity < 65 || humidity > 85) ? 'blink' : ''}
-                style={{width: '60px', height: '60px' }}
+                style={{width: '70px', height: '70px' }}
               />
             </p>
           </div>
           <div id="moisture">
-            <p>
+            <p style = {{color:'green'}}>
               Soil moisture: {displayValue(moisture)} %
               <img
                 src={moistureGif}
@@ -112,9 +114,9 @@ const fetchAverageData  =async () => {
           </div>
           <div id = "averageData">
             <h2>7 days average:</h2>            
-              <p> Tempature: {displayValue(avgTemperature)} °C  <br /><br />
-                  Humidity: {displayValue(avgHumidity)} % <br /><br />
-                  Soil moistue: {displayValue(avgMoisture)} %</p>      
+              <p style = {{color:'orange'}}> Tempature: {displayValue(avgTemperature)} °C </p>  
+              <p style = {{color:'blue'}}>  Humidity: {displayValue(avgHumidity)} % </p> 
+              <p style = {{color:'green'}}>  Soil moistue: {displayValue(avgMoisture)} %</p>      
           </div>
         </div>
         <img id="tomato" src={tomato} alt="tomato" />
