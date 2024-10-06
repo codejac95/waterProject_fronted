@@ -72,8 +72,8 @@ const fetchAverageData  =async () => {
       <div className="container">
         <div className="data-section">
           <div className='data-box'>
-            <h2>Tomato greenhouse data:</h2>
-            <h4>optimal tempature = 16-27°C <br /><br />
+            <h2 className='title'>Tomato greenhouse data:</h2>
+            <h4 className='title'>optimal tempature = 16-27°C <br /><br />
               optimal humidity = 65-85% <br /><br />  
               optimal soil moisture = 40-80% <br /> <br />
          

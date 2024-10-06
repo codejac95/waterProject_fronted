@@ -1,8 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-.h2 {
-  font-family: 'Courier New', Courier, monospace;
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
 }
 .data-section div {
 
