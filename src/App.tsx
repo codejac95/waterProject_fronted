@@ -114,7 +114,7 @@ const fetchAverageData  =async () => {
           </div>
           <div id = "averageData">
             <h2>7 days average:</h2>            
-              <p style = {{color:'orange'}}> Tempature: {displayValue(avgTemperature)} °C </p>  
+              <p style = {{color:'orange'}}> Temperature: {displayValue(avgTemperature)} °C </p>  
               <p style = {{color:'blue'}}>  Humidity: {displayValue(avgHumidity)} % </p> 
               <p style = {{color:'green'}}>  Soil moistue: {displayValue(avgMoisture)} %</p>      
           </div>
